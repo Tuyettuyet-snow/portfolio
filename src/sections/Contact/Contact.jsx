@@ -45,8 +45,9 @@ function Contact() {
     setLoading(true);
     setStatus({ type: "", message: "" });
 
-    // 🟢 Tự động lấy URL backend từ biến môi trường hoặc dùng localhost nếu chạy dưới máy
-    const API_URL = import.meta.env.VITE_API_URL || "https://portfolio-le-thi-tuyet.onrender.com";
+    // Tự động xử lý bỏ dấu slash thừa ở cuối URL nếu có
+    const rawApiUrl = import.meta.env.VITE_API_URL || "https://portfolio-le-thi-tuyet.onrender.com";
+    const API_URL = rawApiUrl.replace(/\/$/, "");
 
     try {
       const response = await fetch(`${API_URL}/api/contact`, {
@@ -57,7 +58,13 @@ function Contact() {
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      // Ép kiểu an toàn phòng trường hợp Server trả về không phải JSON
+      let result = {};
+      try {
+        result = await response.json();
+      } catch (jsonErr) {
+        console.warn("Response không phải JSON:", jsonErr);
+      }
 
       if (response.ok) {
         setStatus({
@@ -74,14 +81,14 @@ function Contact() {
       } else {
         setStatus({
           type: "error",
-          message: result.message || "Gửi tin nhắn thất bại.",
+          message: result.message || `Lỗi máy chủ (${response.status}). Vui lòng thử lại!`,
         });
       }
     } catch (error) {
       console.error("Lỗi kết nối Backend:", error);
       setStatus({
         type: "error",
-        message: "Không thể kết nối tới máy chủ.",
+        message: "Không thể kết nối tới máy chủ (Có thể server đang khởi động, hãy thử lại sau 30s).",
       });
     } finally {
       setLoading(false);
