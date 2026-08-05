@@ -1,0 +1,268 @@
+
+
+/* ========================================
+   WRAPPER
+======================================== */
+
+.about-wrapper {
+  min-height: 700px;
+}
+
+
+/* ========================================
+   LEFT
+======================================== */
+
+.about-left {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ========================================
+   IMAGE
+======================================== */
+
+.about-image-wrapper {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+}
+
+
+.about-image {
+   display: block;
+  width: 200%;
+  max-width: 800px;
+  height: auto;
+  max-height: 95vh;
+  object-fit: contain;
+  object-position: top right;
+
+  /* 🟢 Đẩy ảnh xê dịch sang bên phải */
+  transform: translateX(-100px); 
+
+  filter:
+    drop-shadow(
+      8px 12px 10px
+      rgba(0, 0, 0, 0.18)
+    );
+
+  transition:
+    transform 0.4s ease;
+}
+
+
+.about-image:hover {
+  transform: translateY(-8px);
+}
+
+
+
+
+/* ========================================
+   RIGHT
+======================================== */
+
+.about-right {
+  padding-left: 50px;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.about-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+
+.section-number {
+  color: #02ddff;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+.about-title h2 {
+  margin: 0;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  color: #333333;
+}
+
+
+/* ========================================
+   NAME
+======================================== */
+
+.about-name {
+  margin: 0 0 25px;
+
+  font-size: clamp(
+    40px,
+    5vw,
+    72px
+  );
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+
+  color: #111111;
+}
+
+
+/* ========================================
+   INTRO
+======================================== */
+
+.about-intro {
+  max-width: 650px;
+
+  margin-bottom: 45px;
+}
+
+
+.about-intro p {
+  margin: 0 0 15px;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #666666;
+}
+
+
+/* ========================================
+   SKILLS
+======================================== */
+
+.about-skills {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+}
+
+
+/* ========================================
+   SKILL CARD
+======================================== */
+
+.skill-card {
+  min-height: 120px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding: 20px;
+
+  background-color: #fafafa;
+
+  border: 1px solid #eeeeee;
+
+  border-radius: 12px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.skill-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #02ddff;
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========================================
+   SKILL ICON
+======================================== */
+
+.skill-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  color: #02ddff;
+
+  background-color: #eaffff;
+
+  font-size: 20px;
+}
+
+
+/* ========================================
+   SKILL CONTENT
+======================================== */
+
+.skill-content h3 {
+  margin: 0 0 8px;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  color: #222222;
+}
+
+
+.skill-content p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  color: #777777;
+}
+

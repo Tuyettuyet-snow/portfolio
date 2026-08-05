@@ -1,0 +1,181 @@
+/* ========================================
+   BOOTSTRAP ROW
+======================================== */
+.home-row {
+  /* 🟢 Bỏ 100vh cứng, dùng flex-start để bám sát mép trên */
+  min-height: auto;
+  align-items: flex-start;
+  padding-top: 20px;
+   /* Giảm khoảng cách trên cùng */
+}
+
+/* ========================================
+   LEFT CONTENT
+======================================== */
+.home-left {
+  /* 🟢 Đổi 100vh thành auto & đổi center thành flex-start */
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* 🟢 Giảm padding-top sát lề trên cùng */
+  padding: 0 0 40px 0;
+}
+
+/* ========================================
+   PORTFOLIO TITLE
+======================================== */
+.portfolio-title {
+  margin: 1rem 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(60px, 10vw, 210px);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -1px;
+  color: #bebdbd;
+  white-space: nowrap;
+  text-shadow: 0 15px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ========================================
+   HOME INFO
+======================================== */
+.home-info {
+  width: 100%;
+  max-width: 580px;
+  /* 🟢 Giảm margin-top để chữ không bị đẩy xuống xa title */
+  margin-top: 20px;
+}
+
+.home-role {
+  margin: 0 0 15px;
+  font-size: clamp(22px, 2.5vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111111;
+}
+
+.home-description {
+  width: 100%;
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+.home-major {
+  margin: 0 0 35px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+.home-buttons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.btn-project,
+.btn-cv {
+  width: 140px;
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-project {
+  color: #ffffff;
+  background-color: #333333;
+}
+
+.btn-project:hover {
+  color: #ffffff;
+  background-color: #111111;
+  transform: translateY(-3px);
+}
+
+.btn-cv {
+  color: #111111;
+  background-color: #ffffff;
+  border: 2px solid #111111;
+}
+
+.btn-cv:hover {
+  color: #ffffff;
+  background-color: #111111;
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   RIGHT IMAGE
+======================================== */
+.home-right {
+  /* 🟢 Đổi 100vh thành auto & căn bám đỉnh trên */
+  min-height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.home-image {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  max-height: 95vh;
+  object-fit: contain;
+  object-position: top right;
+  /* 🟢 Giữ đẩy ảnh sang phải */
+  transform: translateX(100px);
+}
+
+/* ========================================
+   MOBILE & TABLET RESPONSIVE (Dưới 992px)
+======================================== */
+@media (max-width: 991.98px) {
+  .home-row {
+    min-height: auto;
+  }
+
+  .home-left {
+    min-height: auto;
+    padding: 20px 0 30px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .portfolio-title {
+    width: 100%;
+    font-size: clamp(45px, 14vw, 90px);
+    white-space: normal;
+  }
+
+  .home-buttons {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .home-right {
+    min-height: auto;
+    justify-content: center;
+  }
+
+  .home-image {
+    width: 90%;
+    height: auto;
+    max-height: 50vh;
+    object-position: center;
+    transform: translateX(0); /* Reset lại trên mobile để tránh vỡ giao diện */
+  }
+}

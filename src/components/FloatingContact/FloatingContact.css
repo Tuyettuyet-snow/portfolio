@@ -1,0 +1,79 @@
+.floating-contact {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+
+  transform: translateY(80%);
+
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 10px;
+
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 50px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* Icon */
+
+.floating-contact-item {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #333;
+  background: #ffffff;
+
+  font-size: 20px;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* Hover */
+
+.floating-contact-item:hover {
+  color: #ffffff;
+  background-color: #ff5a1f;
+
+  transform: translateX(-5px);
+}
+
+
+/* Mobile */
+
+@media (max-width: 767.98px) {
+  .floating-contact {
+    right: 10px;
+    padding: 7px;
+    gap: 6px;
+  }
+
+  .floating-contact-item {
+    width: 38px;
+    height: 38px;
+
+    font-size: 17px;
+  }
+}
