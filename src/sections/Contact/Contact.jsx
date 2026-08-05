@@ -46,7 +46,7 @@ function Contact() {
     setStatus({ type: "", message: "" });
 
     // 🟢 Tự động lấy URL backend từ biến môi trường hoặc dùng localhost nếu chạy dưới máy
-    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const API_URL = import.meta.env.VITE_API_URL || "https://portfolio-le-thi-tuyet.onrender.com";
 
     try {
       const response = await fetch(`${API_URL}/api/contact`, {
