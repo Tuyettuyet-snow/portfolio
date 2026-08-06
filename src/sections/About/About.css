@@ -1,94 +1,136 @@
 
 
-/* ========================================
-   WRAPPER
-======================================== */
+/* =========================================
+   MAIN WRAPPER
+========================================= */
 
 .about-wrapper {
-  min-height: 700px;
+  row-gap: 70px;
 }
 
 
-/* ========================================
+/* =========================================
    LEFT
-======================================== */
+========================================= */
 
 .about-left {
-  height: 100%;
-
   display: flex;
-  flex-direction: column;
-
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 
-/* ========================================
+/* =========================================
+   IMAGE FRAME
+========================================= */
+
+.about-image-frame {
+  position: relative;
+
+  width: min(100%, 470px);
+
+  padding: 10px;
+
+  border: 2px solid #2b9ef6;
+
+  border-radius: 24px;
+
+  background: #fafafa;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.08);
+
+}
+
+
+/*
+   Cyan decorative line
+*/
+
+.about-image-frame::before {
+  content: "";
+
+  position: absolute;
+
+  top: -10px;
+  left: -10px;
+
+  width: 150px;
+  height: 150px;
+
+  border-top: 3px solid #02ddff;
+  border-left: 3px solid #02ddff;
+
+  border-radius: 15px 0 0 0;
+
+  pointer-events: none;
+}
+
+
+/*
+   Bottom decorative line
+*/
+
+.about-image-frame::after {
+  content: "";
+
+  position: absolute;
+
+  right: -10px;
+  bottom: -10px;
+
+  width: 150px;
+  height: 150px;
+
+  border-right: 3px solid #02ddff;
+  border-bottom: 3px solid #02ddff;
+
+  border-radius: 0 0 15px 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
    IMAGE
-======================================== */
+========================================= */
 
 .about-image-wrapper {
+  position: relative;
+
   width: 100%;
 
-  display: flex;
+  overflow: hidden;
 
-  align-items: flex-end;
-  justify-content: center;
+  border-radius: 16px;
+
+  background: #ffe7fe;
 }
 
 
 .about-image {
-   display: block;
-  width: 200%;
-  max-width: 800px;
+  display: block;
+
+  width: 100%;
   height: auto;
-  max-height: 95vh;
-  object-fit: contain;
-  object-position: top right;
 
-  /* 🟢 Đẩy ảnh xê dịch sang bên phải */
-  transform: translateX(-100px); 
+  object-fit: cover;
 
-  filter:
-    drop-shadow(
-      8px 12px 10px
-      rgba(0, 0, 0, 0.18)
-    );
-
-  transition:
-    transform 0.4s ease;
 }
 
 
-.about-image:hover {
-  transform: translateY(-8px);
-}
-
-
-
-
-/* ========================================
-   RIGHT
-======================================== */
-
-.about-right {
-  padding-left: 50px;
-}
-
-
-/* ========================================
+/* =========================================
    TITLE
-======================================== */
+========================================= */
 
 .about-title {
   display: flex;
 
   align-items: center;
 
-  gap: 15px;
+  gap: 18px;
 
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 
@@ -97,132 +139,130 @@
 
   font-size: 14px;
 
-  font-weight: 700;
+  font-weight: 800;
 
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 
 .about-title h2 {
   margin: 0;
 
+  color: #222222;
+
   font-size: 18px;
 
-  font-weight: 600;
+  font-weight: 700;
 
   text-transform: uppercase;
 
-  letter-spacing: 3px;
-
-  color: #333333;
+  letter-spacing: 4px;
 }
 
 
-/* ========================================
+/* =========================================
    NAME
-======================================== */
+========================================= */
 
 .about-name {
-  margin: 0 0 25px;
-
-  font-size: clamp(
-    40px,
-    5vw,
-    72px
-  );
-
-  font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: -2px;
+  margin: 0 0 28px;
 
   color: #111111;
+
+  font-size: clamp(
+    48px,
+    5.5vw,
+    78px
+  );
+
+  font-weight: 900;
+
+  line-height: 0.95;
+
+  letter-spacing: -4px;
 }
 
 
-/* ========================================
+/* =========================================
    INTRO
-======================================== */
+========================================= */
 
 .about-intro {
-  max-width: 650px;
+  max-width: 850px;
 
-  margin-bottom: 45px;
+  margin-bottom: 38px;
 }
 
 
 .about-intro p {
-  margin: 0 0 15px;
+  margin: 0 0 16px;
 
-  font-size: 16px;
+  color: #707070;
+
+  font-size: 15px;
 
   line-height: 1.8;
-
-  color: #666666;
 }
 
 
-/* ========================================
+/* =========================================
    SKILLS
-======================================== */
+========================================= */
 
 .about-skills {
   display: grid;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
 
-  gap: 15px;
+  gap: 16px;
 }
 
 
-/* ========================================
+/* =========================================
    SKILL CARD
-======================================== */
+========================================= */
 
 .skill-card {
-  min-height: 120px;
-
   display: flex;
 
   align-items: flex-start;
 
-  gap: 15px;
+  gap: 18px;
 
-  padding: 20px;
+  min-height: 120px;
 
-  background-color: #fafafa;
+  padding: 22px;
 
-  border: 1px solid #eeeeee;
+  border: 1px solid #e4e6e8;
 
-  border-radius: 12px;
+  border-radius: 16px;
+
+  background: #ffffff;
 
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 
 .skill-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 
-  border-color: #02ddff;
+  border-color: rgba(2, 221, 255, 0.45);
 
   box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.08);
+    0 15px 35px rgba(0, 0, 0, 0.06);
 }
 
 
-/* ========================================
+/* =========================================
    SKILL ICON
-======================================== */
+========================================= */
 
 .skill-icon {
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
 
   flex-shrink: 0;
 
@@ -231,38 +271,134 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
-  color: #02ddff;
+  background: #eefdff;
 
-  background-color: #eaffff;
+  color: #02cfe9;
 
-  font-size: 20px;
+  font-size: 21px;
 }
 
 
-/* ========================================
+/* =========================================
    SKILL CONTENT
-======================================== */
+========================================= */
 
 .skill-content h3 {
-  margin: 0 0 8px;
+  margin: 2px 0 8px;
+
+  color: #151515;
 
   font-size: 17px;
 
-  font-weight: 700;
-
-  color: #222222;
+  font-weight: 800;
 }
 
 
 .skill-content p {
   margin: 0;
 
+  color: #777777;
+
   font-size: 13px;
 
-  line-height: 1.5;
-
-  color: #777777;
+  line-height: 1.6;
 }
 
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 991px) {
+
+  .about-section {
+    padding: 90px 0;
+  }
+
+  .about-left {
+    margin-bottom: 10px;
+  }
+
+  .about-image-frame {
+    width: min(100%, 360px);
+  }
+
+  .about-name {
+    font-size: 58px;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+
+  .about-section {
+    padding: 70px 0;
+  }
+
+  .about-wrapper {
+    row-gap: 50px;
+  }
+
+  .about-image-frame {
+    width: min(100%, 320px);
+  }
+
+  .about-title {
+    margin-bottom: 18px;
+  }
+
+  .about-title h2 {
+    font-size: 15px;
+
+    letter-spacing: 3px;
+  }
+
+  .about-name {
+    font-size: 48px;
+
+    letter-spacing: -2px;
+  }
+
+  .about-intro p {
+    font-size: 14px;
+  }
+
+  .about-skills {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .skill-card {
+    min-height: auto;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .about-image-frame {
+    width: 90%;
+  }
+
+  .about-name {
+    font-size: 42px;
+  }
+
+  .about-title {
+    gap: 12px;
+  }
+
+  .skill-card {
+    padding: 18px;
+  }
+
+}
