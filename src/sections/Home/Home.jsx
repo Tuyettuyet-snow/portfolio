@@ -43,7 +43,7 @@ function Home() {
 
                   {/* 🟢 Đã sửa đường dẫn file CV trong public/ */}
                   <a
-                    href="public/cv_Lê Thị Tuyết.pdf"
+                    href="/cv_Le_Thi_Tuyet.pdf"
                     className="btn-cv"
                     download
                   >
