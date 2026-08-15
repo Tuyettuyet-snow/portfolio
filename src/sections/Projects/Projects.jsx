@@ -78,7 +78,7 @@ function Projects() {
       ],
       github: "https://github.com/",
       // Thay link video online (Youtube/Drive) hoặc để "#" tại đây
-      demo: "#",
+      demo: "https://drive.google.com/drive/folders/1FGVSeMOgJEn97Ua7BvGCmC0wJV4VlXKn?usp=sharing",
     },
 
     {
@@ -96,7 +96,7 @@ function Projects() {
         "Gameplay",
       ],
       github: "https://github.com/",
-      demo: "#",
+      demo: "https://drive.google.com/drive/folders/1f-47xL8cb5p2qR2RJORn-KyMWzwO9Pjb?usp=sharing",
     },
 
     {
@@ -130,42 +130,9 @@ function Projects() {
         "Kịch bản",
       ],
       github: "#",
-      demo: "#",
+      demo: "https://drive.google.com/drive/folders/1lU2Kenc_e2XpGudZLDR2i4FmVQqgyh0O?usp=sharing",
     },
 
-    {
-      id: 6,
-      title: "Multimedia Project",
-      category: "MULTIMEDIA",
-      type: "Multimedia",
-      image: projectImage,
-      description:
-        "Sản phẩm đa phương tiện kết hợp thiết kế hình ảnh, video và nội dung sáng tạo.",
-      skills: [
-        "Premiere Pro",
-        "Photoshop",
-        "Video Editing",
-      ],
-      github: "#",
-      demo: "#",
-    },
-
-    {
-      id: 7,
-      title: "Multimedia Project",
-      category: "MULTIMEDIA",
-      type: "Multimedia",
-      image: projectImage,
-      description:
-        "Sản phẩm đa phương tiện kết hợp thiết kế hình ảnh, video và nội dung sáng tạo.",
-      skills: [
-        "Premiere Pro",
-        "Photoshop",
-        "Video Editing",
-      ],
-      github: "#",
-      demo: "#",
-    },
   ];
 
 
