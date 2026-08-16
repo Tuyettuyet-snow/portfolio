@@ -45,9 +45,14 @@ function Contact() {
     setLoading(true);
     setStatus({ type: "", message: "" });
 
-    // Tự động xử lý bỏ dấu slash thừa ở cuối URL nếu có
-    const rawApiUrl = import.meta.env.VITE_API_URL || "https://portfolio-le-thi-tuyet.onrender.com";
+    // 🟢 TỰ ĐỘNG CHỌN URL: Nếu chạy localhost thì gọi port 5000, ngược lại gọi Render
+    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+    const defaultUrl = isLocalhost ? "http://localhost:5000" : "https://portfolio-le-thi-tuyet.onrender.com";
+    
+    const rawApiUrl = import.meta.env.VITE_API_URL || defaultUrl;
     const API_URL = rawApiUrl.replace(/\/$/, "");
+
+    console.log("🚀 Đang gửi request tới API:", `${API_URL}/api/contact`);
 
     try {
       const response = await fetch(`${API_URL}/api/contact`, {
@@ -58,7 +63,6 @@ function Contact() {
         body: JSON.stringify(formData),
       });
 
-      // Ép kiểu an toàn phòng trường hợp Server trả về không phải JSON
       let result = {};
       try {
         result = await response.json();
@@ -66,7 +70,7 @@ function Contact() {
         console.warn("Response không phải JSON:", jsonErr);
       }
 
-      if (response.ok) {
+      if (response.ok && result.success) {
         setStatus({
           type: "success",
           message: result.message || "Gửi tin nhắn thành công!",
@@ -88,7 +92,7 @@ function Contact() {
       console.error("Lỗi kết nối Backend:", error);
       setStatus({
         type: "error",
-        message: "Không thể kết nối tới máy chủ (Có thể server đang khởi động, hãy thử lại sau 30s).",
+        message: "Không thể kết nối tới máy chủ (Vui lòng kiểm tra lại Backend ở port 5000).",
       });
     } finally {
       setLoading(false);
@@ -98,9 +102,7 @@ function Contact() {
   return (
     <section id="contact" className="contact-section">
       <div className="container">
-        {/* =========================
-            HEADER
-        ========================== */}
+        {/* HEADER */}
         <div className="contact-heading">
           <span className="contact-number">04</span>
           <h2>Contact Me.</h2>
@@ -110,9 +112,7 @@ function Contact() {
         </div>
 
         <div className="row contact-wrapper">
-          {/* =========================
-              LEFT
-          ========================== */}
+          {/* LEFT */}
           <div className="col-lg-5">
             <div className="contact-left">
               <h3>
@@ -171,9 +171,7 @@ function Contact() {
             </div>
           </div>
 
-          {/* =========================
-              RIGHT - FORM
-          ========================== */}
+          {/* RIGHT - FORM */}
           <div className="col-lg-7">
             <div className="contact-form-box">
               {/* STATUS */}
@@ -235,7 +233,7 @@ function Contact() {
               </form>
             </div>
           </div>
-        </div>
+        </div>npm run dev
       </div>
     </section>
   );
