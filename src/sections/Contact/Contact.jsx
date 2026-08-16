@@ -233,7 +233,7 @@ function Contact() {
               </form>
             </div>
           </div>
-        </div>npm run dev
+        </div>
       </div>
     </section>
   );
