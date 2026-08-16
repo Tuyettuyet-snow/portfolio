@@ -10,24 +10,23 @@ const escapeHtml = (str = "") => {
     .replace(/'/g, "&#039;");
 };
 
-// Khởi tạo Transporter Gmail SMTP
+// Khởi tạo Transporter Gmail SMTP với Cổng 465 SSL (Dùng trực tiếp SSL giúp tránh bị timeout trên Render)
 const transporter = nodemailer.createTransport({
-  service: "gmail",
-  pool: true, // Bật Connection Pool tối ưu tốc độ gửi
-  maxConnections: 5,
-  maxMessages: 100,
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // Dùng SSL cho cổng 465
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS || process.env.EMAIL_PASSWORD,
   },
-  connectionTimeout: 10000,
-  socketTimeout: 10000,
+  connectionTimeout: 15000,
+  socketTimeout: 15000,
 });
 
 // Kiểm tra trạng thái kết nối Gmail SMTP
 const verifyEmail = async () => {
   if (!process.env.EMAIL_USER || !(process.env.EMAIL_PASS || process.env.EMAIL_PASSWORD)) {
-    console.error("🔴 Gmail SMTP ERROR: Thiếu EMAIL_USER hoặc EMAIL_PASS/EMAIL_PASSWORD trong file .env");
+    console.error("🔴 Gmail SMTP ERROR: Thiếu EMAIL_USER hoặc EMAIL_PASS/EMAIL_PASSWORD trong biến môi trường");
     return;
   }
 
