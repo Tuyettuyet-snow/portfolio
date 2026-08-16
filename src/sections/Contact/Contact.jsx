@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import emailjs from "@emailjs/browser"; // 👈 Thêm thư viện EmailJS
 import "./Contact.css";
 
 function Contact() {
@@ -37,7 +38,7 @@ function Contact() {
   };
 
   // =========================
-  // SUBMIT FORM
+  // SUBMIT FORM (DÙNG EMAILJS)
   // =========================
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,54 +46,36 @@ function Contact() {
     setLoading(true);
     setStatus({ type: "", message: "" });
 
-    // 🟢 TỰ ĐỘNG CHỌN URL: Nếu chạy localhost thì gọi port 5000, ngược lại gọi Render
-    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-    const defaultUrl = isLocalhost ? "http://localhost:5000" : "https://portfolio-le-thi-tuyet.onrender.com";
-    
-    const rawApiUrl = import.meta.env.VITE_API_URL || defaultUrl;
-    const API_URL = rawApiUrl.replace(/\/$/, "");
-
-    console.log("🚀 Đang gửi request tới API:", `${API_URL}/api/contact`);
-
     try {
-      const response = await fetch(`${API_URL}/api/contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      // 🟢 Cấu hình EmailJS trực tiếp từ Frontend (Bỏ qua Backend và Render)
+      await emailjs.send(
+        "service_1utkxe6",    // Service ID của bạn
+        "template_hgc9evo",   // ⚠️ Thay bằng Template ID thực tế của bạn trên EmailJS Dashboard
+        {
+          from_name: formData.name, // Khớp với biến trong template
+          name: formData.name,      // Khớp với {{name}}
+          email: formData.email,    // Khớp với {{email}}
+          message: formData.message,// Khớp với {{message}}
         },
-        body: JSON.stringify(formData),
+        "zXxgWzwPNRcEf4Qo-"     // ⚠️ Thay bằng Public Key của bạn (Lấy ở Account -> General trên EmailJS)
+      );
+
+      setStatus({
+        type: "success",
+        message: "Gửi tin nhắn thành công!",
       });
 
-      let result = {};
-      try {
-        result = await response.json();
-      } catch (jsonErr) {
-        console.warn("Response không phải JSON:", jsonErr);
-      }
-
-      if (response.ok && result.success) {
-        setStatus({
-          type: "success",
-          message: result.message || "Gửi tin nhắn thành công!",
-        });
-
-        // Xóa form sau khi gửi thành công
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-      } else {
-        setStatus({
-          type: "error",
-          message: result.message || `Lỗi máy chủ (${response.status}). Vui lòng thử lại!`,
-        });
-      }
+      // Xóa form sau khi gửi thành công
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
     } catch (error) {
-      console.error("Lỗi kết nối Backend:", error);
+      console.error("Lỗi gửi email qua EmailJS:", error);
       setStatus({
         type: "error",
-        message: "Không thể kết nối tới máy chủ (Vui lòng kiểm tra lại Backend ở port 5000).",
+        message: "Gửi email thất bại. Vui lòng thử lại sau!",
       });
     } finally {
       setLoading(false);
