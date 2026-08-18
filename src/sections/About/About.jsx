@@ -5,7 +5,6 @@ import aboutImage from "../../assets/about.png";
 import galleryImg1 from "../../assets/6.jpg";
 import galleryImg2 from "../../assets/7.jpg";
 import galleryImg3 from "../../assets/8.jpg";
-import videoPoster from "../../assets/anh_video.jpg";
 
 function About() {
   const skills = [
@@ -132,40 +131,6 @@ function About() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* ================= PHẦN 4: GÓC VIDEO SÁNG TẠO ================= */}
-        <div className="extra-section-block">
-          <div className="section-sub-header text-center">
-            <span className="section-number">04</span>
-            <h2>Góc Video / Sáng Tạo Nội Dung</h2>
-            <p className="sub-desc">Chia sẻ hành trình học tập, làm đồ án và cuộc sống sinh viên</p>
-          </div>
-
-          <div className="row justify-content-center">
-            <div className="col-lg-10 col-md-12">
-              <div className="video-display-card wide-video-card">
-                <video 
-                  src="/video.mp4" 
-                  poster={videoPoster}
-                  controls 
-                  muted
-                  playsInline
-                  preload="metadata"
-                  className="w-100"
-                />
-                <div className="video-card-caption">
-                  <div className="tiktok-logo-badge">
-                    <i className="bi bi-play-fill"></i>
-                  </div>
-                  <div>
-                    <h4>Giới thiệu bản thân & Đồ án Multimedia 🎬</h4>
-                    <p>Bấm phát để xem video chia sẻ quá trình làm việc và thiết kế của mình nhé!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
