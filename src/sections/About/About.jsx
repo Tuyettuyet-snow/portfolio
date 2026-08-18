@@ -1,5 +1,13 @@
 import "./About.css";
-import aboutImage from "../../assets/about.png"; // Ảnh đại diện chính của bạn
+import aboutImage from "../../assets/about.png"; 
+
+// Import chuẩn các ảnh khoảnh khắc đời sống từ assets
+import galleryImg1 from "../../assets/6.jpg";
+import galleryImg2 from "../../assets/7.jpg";
+import galleryImg3 from "../../assets/8.jpg";
+
+// Import ảnh poster của video từ assets
+import videoPoster from "../../assets/anh_video.jpg";
 
 function About() {
   const skills = [
@@ -28,17 +36,17 @@ function About() {
   const galleryImages = [
     { 
       id: 1, 
-      img: "src/assets/6.jpg", 
+      img: galleryImg1, 
       caption: "Khoảnh khắc sáng tạo" 
     },
     { 
       id: 2, 
-      img: "src/assets/7.jpg", 
+      img: galleryImg2, 
       caption: "Hậu trường làm đồ án" 
     },
     { 
       id: 3, 
-      img: "src/assets/8.jpg", 
+      img: galleryImg3, 
       caption: "Đam mê thiết kế & 3D" 
     },
   ];
@@ -167,7 +175,7 @@ function About() {
           </div>
         </div>
 
-        {/* ================= PHẦN 4: GÓC VIDEO SÁNG TẠO (KHUNG RỘNG TO) ================= */}
+        {/* ================= PHẦN 4: GÓC VIDEO SÁNG TẠO (PUBLIC FOLDER) ================= */}
         <div className="extra-section-block">
           <div className="section-sub-header text-center">
             <span className="section-number">04</span>
@@ -176,12 +184,11 @@ function About() {
           </div>
 
           <div className="row justify-content-center">
-            {/* Sử dụng col-lg-10 để khung video to và trải rộng hơn */}
             <div className="col-lg-10 col-md-12">
               <div className="video-display-card wide-video-card">
                 <video 
                   src="/Video_GTBT.mp4" 
-                  poster="src/assets/anh_video.jpg"
+                  poster={videoPoster}
                   controls 
                   className="w-100"
                 />
