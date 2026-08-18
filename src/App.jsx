@@ -6,6 +6,7 @@ import About from "./sections/About/About";
 import Projects from "./sections/Projects/Projects";
 import Contact from "./sections/Contact/Contact";
 import FloatingContact from "./components/FloatingContact/FloatingContact";
+import FloatingCharacter from "./components/FloatingCharacter/FloatingCharacter";
 
 
 function App() {
@@ -18,9 +19,10 @@ function App() {
         <About />
         <Projects />
         <Contact />
-      </main>
+            </main>
 
       <FloatingContact />
+      <FloatingCharacter />
 
       <Footer />
     </>
