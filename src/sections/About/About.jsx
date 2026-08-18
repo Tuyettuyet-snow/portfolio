@@ -1,65 +1,35 @@
 import "./About.css";
 import aboutImage from "../../assets/about.png"; 
 
-// Import chuẩn các ảnh khoảnh khắc đời sống từ assets
+// Import các ảnh tĩnh từ assets
 import galleryImg1 from "../../assets/6.jpg";
 import galleryImg2 from "../../assets/7.jpg";
 import galleryImg3 from "../../assets/8.jpg";
-
-// Import ảnh poster của video từ assets
 import videoPoster from "../../assets/anh_video.jpg";
 
 function About() {
   const skills = [
-    {
-      icon: "bi-code-slash",
-      title: "Frontend",
-      description: "HTML, CSS, JavaScript, React, Bootstrap 5",
-    },
-    {
-      icon: "bi-server",
-      title: "Backend",
-      description: "Node.js, Express, REST API, Database",
-    },
-    {
-      icon: "bi-vector-pen",
-      title: "UI / UX",
-      description: "Figma, Wireframe, Prototype, Responsive Design",
-    },
-    {
-      icon: "bi-box",
-      title: "3D & Multimedia",
-      description: "Blender, Animation, Video Editing",
-    },
+    { icon: "bi-code-slash", title: "Frontend", description: "HTML, CSS, JavaScript, React, Bootstrap 5" },
+    { icon: "bi-server", title: "Backend", description: "Node.js, Express, REST API, Database" },
+    { icon: "bi-vector-pen", title: "UI / UX", description: "Figma, Wireframe, Prototype, Responsive Design" },
+    { icon: "bi-box", title: "3D & Multimedia", description: "Blender, Animation, Video Editing" },
   ];
 
   const galleryImages = [
-    { 
-      id: 1, 
-      img: galleryImg1, 
-      caption: "Khoảnh khắc sáng tạo" 
-    },
-    { 
-      id: 2, 
-      img: galleryImg2, 
-      caption: "Hậu trường làm đồ án" 
-    },
-    { 
-      id: 3, 
-      img: galleryImg3, 
-      caption: "Đam mê thiết kế & 3D" 
-    },
+    { id: 1, img: galleryImg1, caption: "Khoảnh khắc sáng tạo" },
+    { id: 2, img: galleryImg2, caption: "Hậu trường làm đồ án" },
+    { id: 3, img: galleryImg3, caption: "Đam mê thiết kế & 3D" },
   ];
 
   const clubActivities = [
     {
       title: "Ban Sự kiện",
-      role: "Lên ý tưởng, tổ chức và điều phối các hoạt động",
-      description: "Tham gia thiết kế ấn phẩm Key Visual, poster và dựng video recap cho các hoạt động lớn của trường/khoa.",
+      role: "Lên ý tưởng, tổ chức và điều phối",
+      description: "Tham gia thiết kế Key Visual, poster và dựng video recap cho các hoạt động của trường.",
       icon: "bi-camera-reels",
     },
     {
-      title: "BLL sinh viên Thanh Hóa - Đại học Kiến trúc Hà Nội",
+      title: "BLL sinh viên Thanh Hóa - ĐH Kiến trúc HN",
       role: "Thành viên tích cực",
       description: "Cùng đồng đội phát triển các project web thực chiến, chia sẻ kiến thức về React và UI/UX.",
       icon: "bi-laptop",
@@ -69,18 +39,14 @@ function About() {
   return (
     <section id="about" className="about-section">
       <div className="container">
-
+        
         {/* ================= PHẦN 1: PROFILE CHÍNH ================= */}
         <div className="row about-wrapper align-items-center">
           <div className="col-lg-5 col-md-5">
             <div className="about-left">
               <div className="about-image-frame">
                 <div className="about-image-wrapper">
-                  <img
-                    src={aboutImage}
-                    alt="Lê Thị Tuyết"
-                    className="about-image"
-                  />
+                  <img src={aboutImage} alt="Lê Thị Tuyết" className="about-image" />
                 </div>
               </div>
             </div>
@@ -98,15 +64,9 @@ function About() {
               <div className="about-intro">
                 <p>
                   Tôi là sinh viên ngành Công nghệ Đa phương tiện, có kỹ năng
-                  về Frontend, Backend, UI/UX, Software Testing/QA và 3D/Game
-                  Art. Tôi sử dụng các công nghệ như HTML, CSS, JavaScript,
-                  React, Bootstrap 5, Node.js, Express, REST API, Database,
-                  Figma và Blender.
-                </p>
-                <p>
-                  Tôi yêu thích kết hợp lập trình, thiết kế và sáng tạo để xây
-                  dựng những sản phẩm kỹ thuật số trực quan, tương tác và có
-                  trải nghiệm tốt.
+                  về Frontend, Backend, UI/UX và 3D/Game Art. Tôi yêu thích kết hợp 
+                  lập trình, thiết kế và sáng tạo để xây dựng những sản phẩm kỹ thuật số 
+                  trực quan, tương tác và có trải nghiệm tốt.
                 </p>
               </div>
 
@@ -127,7 +87,7 @@ function About() {
           </div>
         </div>
 
-        {/* ================= PHẦN 2: KHO ẢNH CÁ NHÂN & ĐỜI SỐNG ================= */}
+        {/* ================= PHẦN 2: KHOẢNH KHẮC & ĐỜI SỐNG ================= */}
         <div className="extra-section-block">
           <div className="section-sub-header text-center">
             <span className="section-number">02</span>
@@ -175,7 +135,7 @@ function About() {
           </div>
         </div>
 
-        {/* ================= PHẦN 4: GÓC VIDEO SÁNG TẠO (PUBLIC FOLDER) ================= */}
+        {/* ================= PHẦN 4: GÓC VIDEO SÁNG TẠO ================= */}
         <div className="extra-section-block">
           <div className="section-sub-header text-center">
             <span className="section-number">04</span>
@@ -190,6 +150,9 @@ function About() {
                   src="/Video_GTBT.mp4" 
                   poster={videoPoster}
                   controls 
+                  muted
+                  playsInline
+                  preload="metadata"
                   className="w-100"
                 />
                 <div className="video-card-caption">
