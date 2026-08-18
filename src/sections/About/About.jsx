@@ -147,7 +147,7 @@ function About() {
             <div className="col-lg-10 col-md-12">
               <div className="video-display-card wide-video-card">
                 <video 
-                  src="/Video_GTBT.mp4" 
+                  src="/video.mp4" 
                   poster={videoPoster}
                   controls 
                   muted
