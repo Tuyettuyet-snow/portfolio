@@ -40,7 +40,7 @@ export default function FloatingCharacter() {
         // ĐIỀU CHỈNH KHOẢNG CÁCH CÁCH XA CON TRỎ CHUỘT TẠI ĐÂY
         // ==========================================
         const offsetX = 70;  // Tăng lên 70px (hoặc 80px) để nhân vật lùi hẳn sang phải, không che nút bấm
-        const offsetY = -40; // Lệch lên phía trên 40px
+        const offsetY = -50; // Lệch lên phía trên 50px
 
         const targetX = mousePos.x + offsetX;
         const targetY = mousePos.y + offsetY;
@@ -59,11 +59,11 @@ export default function FloatingCharacter() {
   }, [mousePos]);
 
   // Kích thước riêng cho từng icon
-  const normalSize = 150; 
-  const hoverSize = 90;  
+  const normalSize = 130; 
+  const hoverSize = 150;  
 
   const currentSize = isHovered ? hoverSize : normalSize;
-  const currentImage = isHovered ? '/icon-hover.png' : '/icon.png';
+  const currentImage = isHovered ? '/icon2.png' : '/icon1.png';
 
   return (
     <div
