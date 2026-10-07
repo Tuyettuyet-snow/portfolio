@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
@@ -7,7 +8,6 @@ import Projects from "./sections/Projects/Projects";
 import Contact from "./sections/Contact/Contact";
 import FloatingContact from "./components/FloatingContact/FloatingContact";
 import FloatingCharacter from "./components/FloatingCharacter/FloatingCharacter";
-
 
 function App() {
   return (
@@ -19,12 +19,14 @@ function App() {
         <About />
         <Projects />
         <Contact />
-            </main>
+      </main>
 
       <FloatingContact />
       <FloatingCharacter />
 
       <Footer />
+
+      <Analytics />
     </>
   );
 }
